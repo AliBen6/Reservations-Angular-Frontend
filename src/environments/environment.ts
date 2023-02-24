@@ -1,4 +1,4 @@
 export const environment = {
-    environment : 'production',
+    profile : 'production',
     apiUrl: 'http://my-prod-url'
 };
