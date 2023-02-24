@@ -1,4 +1,4 @@
 export const environment = {
-    environment : 'staging',
+    profile : 'staging',
     apiUrl: 'http://my-staging-url'
 };

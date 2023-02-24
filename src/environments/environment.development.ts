@@ -1,4 +1,4 @@
 export const environment = {
-    environment : 'development',
+    profile : 'development',
     apiUrl: 'http://my-dev-url'
 };
