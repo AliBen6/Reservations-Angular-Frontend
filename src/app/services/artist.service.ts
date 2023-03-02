@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
+
 import { Observable } from 'rxjs';
 import { Artist } from '../models/artist.model';
-
-const baseUrl = 'http://localhost:8082/reservations/api/Reservations/V1/artists';
 
 @Injectable({
   providedIn: 'root'
@@ -12,23 +12,27 @@ export class ArtistService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Artist[]> {
-    return this.http.get<Artist[]>(baseUrl);
+  getAll(route: string): Observable<Artist[]> {
+    return this.http.get<Artist[]>(this.createCompleteRoute(route, environment.apiUrl));
   }
 
-  get(id: any): Observable<Artist> {
-    return this.http.get<Artist>(`${baseUrl}/${id}`);
+  get(route: string,id: any): Observable<Artist> {
+    return this.http.get<Artist>(this.createCompleteRoute(route, environment.apiUrl)+`/${id}`);
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+  create(route:string, data: any): Observable<any> {
+    return this.http.post(this.createCompleteRoute(route, environment.apiUrl), data);
   }
 
-  update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+  update(route:string, id: any, data: any): Observable<any> {
+    return this.http.put(this.createCompleteRoute(route, environment.apiUrl)+`/${id}`, data);
   }
 
-  delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+  delete(route:string, id: any): Observable<any> {
+    return this.http.delete(this.createCompleteRoute(route, environment.apiUrl)+`/${id}`);
+  }
+
+  private createCompleteRoute = (route: string, envAddress: string) => {
+    return `${envAddress}/${route}`;
   }
 }

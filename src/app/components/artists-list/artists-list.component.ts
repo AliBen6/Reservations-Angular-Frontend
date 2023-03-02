@@ -19,7 +19,7 @@ export class ArtistsListComponent implements OnInit{
   }
 
   retrieveArtists(): void {
-    this.artistService.getAll()
+    this.artistService.getAll('V1/artists')
       .subscribe({
         next: (data) => {
           this.artists = data;
@@ -39,5 +39,6 @@ export class ArtistsListComponent implements OnInit{
     this.currentArtist = artist;
     this.currentIndex = index;
   }
+
 
 }
