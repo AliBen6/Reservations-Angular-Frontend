@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Artist } from 'src/app/models/artist.model';
-import { ArtistService } from 'src/app/services/artist.service';
+import { Artist } from 'src/app/models/artist/artist.model';
+import { ArtistService } from 'src/app/services/artist/artist.service';
 
 @Component({
   selector: 'app-artists-list',
@@ -39,6 +39,5 @@ export class ArtistsListComponent implements OnInit{
     this.currentArtist = artist;
     this.currentIndex = index;
   }
-
 
 }
