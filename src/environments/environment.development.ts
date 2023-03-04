@@ -1,4 +1,4 @@
 export const environment = {
     profile : 'development',
-    apiUrl: 'http://my-dev-url'
+    apiUrl: 'http://localhost:8082/Reservations/api'
 };
