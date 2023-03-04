@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Artist } from 'src/app/models/artist/artist.model';
 import { ArtistService } from 'src/app/services/artist/artist.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-artists-list',
@@ -19,7 +20,7 @@ export class ArtistsListComponent implements OnInit{
   }
 
   retrieveArtists(): void {
-    this.artistService.getAll('V1/artists')
+    this.artistService.getAll(environment.artistUrl)
       .subscribe({
         next: (data) => {
           this.artists = data;

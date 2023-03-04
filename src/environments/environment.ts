@@ -1,4 +1,5 @@
 export const environment = {
-    profile : 'production',
-    apiUrl: 'http://my-prod-url'
+    environment : 'production',
+    apiUrl: 'http://my-prod-url',
+    artistUrl: 'V1/artists'
 };
